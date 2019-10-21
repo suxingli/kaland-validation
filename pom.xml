@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kaland</groupId>
 	<artifactId>kaland-validation</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>参数校验工具包</name>
 	<description>参数校验工具包</description>
 	

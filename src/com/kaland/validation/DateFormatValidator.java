@@ -13,7 +13,8 @@ import com.kaland.validation.exception.ValidationException;
  * @date 2019-10-08 17:12:51
  */
 public class DateFormatValidator extends Validator {
-	private String pattern;
+	private static final String default_pattern = "yyyy-MM-dd HH:mm:ss";
+	private String pattern = default_pattern;
 
 	/**
 	 * 构造方法
@@ -23,15 +24,15 @@ public class DateFormatValidator extends Validator {
 	 */
 	public DateFormatValidator(String pattern) {
 		super();
-		this.pattern = pattern;
+		this.pattern = (pattern == null ? default_pattern : pattern);
 	}
 
 	@Override
 	public void valid(String name, Object value) throws ValidationException {
-		if (value == null) {
+		if (value == null || pattern == null) {
 			return;
 		}
-		if (!(value instanceof String)) {
+		if (!(value instanceof String) || value.toString().length() == pattern.length()) {
 			throw new ValidationException(-12, MessageFormat.format("{0}格式不正确", name));
 		}
 		try {
