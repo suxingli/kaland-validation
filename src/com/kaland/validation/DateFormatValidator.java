@@ -32,7 +32,7 @@ public class DateFormatValidator extends Validator {
 		if (value == null || pattern == null) {
 			return;
 		}
-		if (!(value instanceof String) || value.toString().length() == pattern.length()) {
+		if (!(value instanceof String) || value.toString().length() != pattern.length()) {
 			throw new ValidationException(-12, MessageFormat.format("{0}格式不正确", name));
 		}
 		try {
